@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>LG113_Sodium_Tan</title>
+
+    <meta charset="utf-8">
+    <meta name="author" content="Arabella Tan">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="revised" content="4-29-2022">
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+
+  
+  <body>
+    <!-- Input from user -->
+    
+    <h1>Sign-up Sheet</h1>
+    
+    <form id="input" onsubmit="return getOutput();" onreset="resetOutput()">
+      <fieldset form="input">
+        <legend>Input: </legend>
+        <br>
+        
+        <label for="name">Name:</label>
+          <br>
+          <input type="text" id="name" name="name" onfocus="focusBorder(this)" onblur="blurBorder(this)" required>
+          <br>
+          <br>
+        
+        <label for="gender">Gender:</label>
+          </br>
+          <select name="gender" id="gender" onfocus="focusBorder(this)" onblur="blurBorder(this)" required>
+            <option value=""></option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+          </select>
+          <br>
+          <br>
+        
+        <label for="uname">Preferred username:</label>
+          <br>
+          <input type="text" id="uname" name="uname" onfocus="focusBorder(this)" onblur="blurBorder(this)" required>
+          <br>
+          <br>
+        
+        <label for="pword">Password:</label>
+          <br>
+          <input type="password" id="pword" name="pword" onfocus="focusBorder(this)" onblur="blurBorder(this)" required>
+          <br>
+          <br>
+        
+        <label for="email">Email:</label>
+          <br>
+          <input type="email" id="email" name="email" onfocus="focusBorder(this)" onblur="blurBorder(this)" required>
+          <br>
+          <br>
+        
+        <label for="desc">Write a short paragraph about your interests:</label>
+          <br>
+          <textarea id="desc" name="descrption" rows="10" cols="50" onfocus="focusBorder(this)" onblur="blurBorder(this)" required></textarea>
+          <br>
+          <br>
+        
+        <input type="submit" value="Submit" id="button">
+        <input type="reset" value="Reset" id="button">
+      </fieldset>
+    </form>
+
+    <!-- User information output -->
+    <div>
+      <h2 id="outputTxt"></h2>
+      <p id="nameTxt"></p>
+      <p id="genderTxt"></p>
+      <p id="unameTxt"></p>
+      <p id="pwordTxt"></p>
+      <p id="emailTxt"></p>
+      <p id="descTxt"></p>
+    </div>
+    
+    <!-- JavaScript -->
+    
+    <script>
+      // Text area borders
+      
+      function focusBorder(x) {
+        x.style.borderColor = "green";
+      }
+
+      function blurBorder(x) {     
+        x.style.borderColor = "green";
+        if (x.value == ""){
+          x.style.borderColor = "red";
+        }
+      }
+      
+      // User information output
+
+      function getOutput() {
+        document.getElementById("outputTxt").innerHTML = "User Information";
+      
+        document.getElementById("nameTxt").innerHTML = "Name: " + document.getElementById("name").value;
+        document.getElementById("genderTxt").innerHTML = "Gender: " + document.getElementById("gender").value;
+        document.getElementById("unameTxt").innerHTML = "Username: " + document.getElementById("uname").value;
+        document.getElementById("pwordTxt").innerHTML = "Password: " + document.getElementById("pword").value;
+        document.getElementById("emailTxt").innerHTML = "Email: " + document.getElementById("email").value;
+        document.getElementById("descTxt").innerHTML = "Interests: " + document.getElementById("desc").value;
+
+        return false;
+      }
+      // Reset
+
+      function resetOutput() {
+        document.getElementById("outputTxt").innerHTML = "";
+      
+        document.getElementById("nameTxt").innerHTML = "";
+        document.getElementById("genderTxt").innerHTML = "";
+        document.getElementById("unameTxt").innerHTML = "";
+        document.getElementById("pwordTxt").innerHTML = "";
+        document.getElementById("emailTxt").innerHTML = "";
+        document.getElementById("descTxt").innerHTML = "";
+
+        return;
+      }
+    </script>
+  </body>
+</html>
